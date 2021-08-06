@@ -9,7 +9,7 @@ Assume-se que o usuário esteja utilizando alguma distribuição Linux ou Window
 Agora, obtenha o repositório através do comando:
 * git clone https://github.com/vscardel/web_crawler_digesto
 
-Primeiro é necessário ativar o ambiente virtual.
+Em seguida, é necessário ativar o ambiente virtual.
 * Se já não o tiver instalado, rode o seguinte comando para a instalação do virtualenv:
 * pip3 install virtualenv
 

@@ -51,7 +51,7 @@ if __name__ == '__main__':
 			print('\n\n')
 			v_crawler.print(info_dict_vultr,10)
 			print('\n\n')
-			print("Informações do Site https://www.vultr.com:")
+			print("Informações do Site https://www.digitalocean.com:")
 			print('\n\n')
 			ocean_crawler.print(info_dict_ocean,6)
 		#salva em json 

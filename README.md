@@ -2,7 +2,12 @@
 # Web Crawler Digesto
 
 # Configuração do Ambiente
-Assume-se que o usuário esteja utilizando alguma distribuição Linux ou Windows com acesso a um terminal.
+Assume-se que o usuário esteja utilizando alguma distribuição Linux ou Windows com acesso a um terminal. É necessário também que estejam instalados Python3 e pip3. Se seu sistema operacional não possui esses pacotes, execute:
+* sudo apt install python3.8
+* sudo apt-get install python3-pip 
+
+Agora, obtenha o repositório através do comando:
+* git clone https://github.com/vscardel/web_crawler_digesto
 
 Primeiro é necessário ativar o ambiente virtual.
 * Se já não o tiver instalado, rode o seguinte comando para a instalação do virtualenv:

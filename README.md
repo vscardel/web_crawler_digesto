@@ -20,7 +20,7 @@ Por fim, ative o ambiente com o comando:
 *  . venv/bin/activate
 
 Para instalar as dependências, dentro do diretório do projeto, execute o comando:
-* pip3 -r requirements.txt
+* pip3 install -r requirements.txt
 
 # Execução
 

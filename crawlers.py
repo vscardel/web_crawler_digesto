@@ -28,7 +28,7 @@ class VultCrawler(Crawler):
 		results_1 = [x.group(1) for x in re.finditer(padrao_1, html.text,re.MULTILINE)]
 
 		#captura bandwith
-		padrao_2 = r"""<span class="">
+		padrao_2 = r"""<span class="[a-z]*-*[a-z]*">
 		[\s]*<strong>([0-9]*.[0-9]*[\ ]*[A-Z]*)</strong>[\s]*<span class="is-hidden-lg-up"> Bandwidth</span>"""
 		results_2 = [x.group(1) for x in re.finditer(padrao_2, html.text,re.MULTILINE)]
 
@@ -37,4 +37,3 @@ class VultCrawler(Crawler):
 		[\s]*<span class="pt__cell-price-monthly js-price">[\s]*<strong>\$([0-9]*)"""
 		results_3 = [x.group(1) for x in re.finditer(padrao_3, html.text,re.MULTILINE)]
 
-		print(results_3)

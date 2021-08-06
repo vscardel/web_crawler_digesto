@@ -25,4 +25,4 @@ Para executar o código, basta executar o seguinte comando:
 Em que --option é um argumento que pode assumir os seguintes valores:
 * --print --> Imprime no terminal as informações dos sites.
 * --save_json --> Cria dois arquivos .txt dentro da pasta do projeto: digital_ocean_json.txt e vultr_json.txt. Cada um possui como conteúdo o objeto json que representa as informações coletadas.
-* --save_json -->  Cria dois arquivos .txt dentro da pasta do projeto: vultr.csv e digital_ocean.csv. Cada um possui como conteúdo o  csv que representa as informações coletadas.
+* --save_csv -->  Cria dois arquivos .txt dentro da pasta do projeto: vultr.csv e digital_ocean.csv. Cada um possui como conteúdo o  csv que representa as informações coletadas.

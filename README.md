@@ -1,5 +1,5 @@
 
-# web_crawler_digesto
+# Web Crawler Digesto
 
 # Configuração do Ambiente
 Assume-se que o usuário esteja utilizando alguma distribuição Linux ou Windows com acesso a um terminal.

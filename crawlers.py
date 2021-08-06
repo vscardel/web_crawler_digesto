@@ -51,6 +51,7 @@ class VultCrawler(Crawler):
 		[\s]*<span class="pt__cell-price-monthly js-price">[\s]*<strong>\$([0-9]*\.*[0-9]*)"""
 		results_3 = [x.group(1) for x in re.finditer(padrao_3, html.text,re.MULTILINE)]
 
+		#construindo dicionario com as informacoes
 		num_itens_table = 10
 		info_dict = {"storage":[],"cpu":[],"memoria":[],"band":[],"price":[]}
 
@@ -64,5 +65,45 @@ class VultCrawler(Crawler):
 			info_dict['storage'].append(results_1[i])
 			info_dict['cpu'].append(results_1[i+1])
 			info_dict['memoria'].append(results_1[i+2])
+
+		return info_dict
+
+class DigitalOceanCrawler(Crawler):
+	#retorna dicionario com as informacoes necessarias
+	#ex: dict['memoria'] = [1GB,2GB]...
+	#em que cada elemento da lista esta na ordem em que aparece na view
+	def get_info(self):
+		html = self.get_html_text()
+		#captura o preço
+		padrao_1 = r"""<span class="largePrice">([0-9]*\.00)"""
+		results_preco = [x.group(1) 
+		for x in re.finditer(padrao_1, html.text,re.MULTILINE)]	
+
+		#retorna a memória e a cpu
+		padrao_2 =r"""<li>([0-9]* GB)<!-- --> <span>/ <!-- -->([0-9]* CPU)"""
+		results_memoria = [x.group(1) 
+		for x in re.finditer(padrao_2, html.text,re.MULTILINE)]
+		results_cpu = [x.group(2) 
+		for x in re.finditer(padrao_2, html.text,re.MULTILINE)]	
+
+		#retorna o armazenamento
+		padrao_3 = r"""<li>([0-9]* GB)<!-- --> <span>SSD"""
+		results_armazenamento = [x.group(1) 
+		for x in re.finditer(padrao_3, html.text,re.MULTILINE)]
+
+		#retorna a largura de banda
+		padrao_4 = r"""([0-9]* [GB,TB]*)<!-- --> <span>transfer"""
+		results_largura_banda = [x.group(1) 
+		for x in re.finditer(padrao_4, html.text,re.MULTILINE)]
+
+		#construindo dicionario com as informacoes
+		num_itens_table = 6
+		info_dict = {"storage":[],"cpu":[],"memoria":[],"band":[],"price":[]}
+		for i in range(num_itens_table):
+			info_dict['band'].append(results_largura_banda[i])
+			info_dict['price'].append(results_preco[i])
+			info_dict['storage'].append(results_armazenamento[i])
+			info_dict['memoria'].append(results_memoria[i])
+			info_dict['cpu'].append(results_cpu[i])
 
 		return info_dict

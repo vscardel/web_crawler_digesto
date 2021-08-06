@@ -1,7 +1,7 @@
 import requests
 import argparse
 import re
-from crawlers import VultCrawler
+from crawlers import VultCrawler,DigitalOceanCrawler
 
 #argumentos passados pelo terminal 
 def parse_arguments(parser):
@@ -31,6 +31,8 @@ if __name__ == '__main__':
 	url_digital = "https://www.digitalocean.com/pricing/"
 	#algum argumento foi fornecido
 	if opt.print or opt.save_csv or opt.save_json:
+		ocean_crawler = DigitalOceanCrawler(url_digital)
+		info_dict_ocean  = ocean_crawler.get_info()
 		v_crawler = VultCrawler(url_vult)
 		info_dict_vultr = v_crawler.get_info()
 		if opt.print:
@@ -38,6 +40,10 @@ if __name__ == '__main__':
 			print("Informações do Site https://www.vultr.com:")
 			print('\n\n')
 			v_crawler.print(info_dict_vultr,10)
+			print('\n\n')
+			print("Informações do Site https://www.vultr.com:")
+			print('\n\n')
+			ocean_crawler.print(info_dict_ocean,6)
 
 	else:
 		print('Alguma opção deve ser fornecida ao crawler.')

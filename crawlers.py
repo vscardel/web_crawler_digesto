@@ -26,6 +26,15 @@ class Crawler():
 			print("\tPreço/Mês: $" + str(info_dict['price'][i]) + '\n')
 			print('\n')
 
+	#, is the separator
+	def write_csv_data(self,info_dict,file,num_rows):
+		file.write("CPU,Memória,Armazenamento,Largura de Banda,Preço/Mês\n" )
+		for i in range(num_rows):
+			file.write(str(info_dict['cpu'][i]) + ',')
+			file.write(str(info_dict['memoria'][i]) + ',')
+			file.write(str(info_dict['storage'][i]) + ',')
+			file.write(str(info_dict['band'][i]) + ',')
+			file.write(str(info_dict['price'][i]) + '\n')	
 
 class VultCrawler(Crawler):
 

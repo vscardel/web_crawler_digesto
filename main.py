@@ -61,6 +61,7 @@ if __name__ == '__main__':
 			with open('digital_ocean_json.txt', 'w') as outfile:
 				json.dump(info_dict_ocean, outfile)
 		else:	
+		#salva em csv
 			with open('vultr.csv', 'w') as outfile:
 				v_crawler.write_csv_data(info_dict_vultr,outfile,10)
 			with open('digital_ocean.csv', 'w') as outfile:

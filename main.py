@@ -32,7 +32,12 @@ if __name__ == '__main__':
 	#algum argumento foi fornecido
 	if opt.print or opt.save_csv or opt.save_json:
 		v_crawler = VultCrawler(url_vult)
-		v_crawler.get_info()
+		info_dict_vultr = v_crawler.get_info()
+		if opt.print:
+			print('\n\n')
+			print("Informações do Site https://www.vultr.com:")
+			print('\n\n')
+			v_crawler.print(info_dict_vultr,10)
 
 	else:
 		print('Alguma opção deve ser fornecida ao crawler.')
